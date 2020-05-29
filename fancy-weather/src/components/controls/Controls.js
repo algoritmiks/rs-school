@@ -1,14 +1,9 @@
 import React from 'react';
 
-function Controls() {
-
-  const updateBackground = () => {
-    alert ('asdf');
-  }
-
+function Controls(props) {
   return (
     <div className="controls">
-      <button onClick={() => updateBackground()}>Update</button>
+      <button onClick={() => props.getImageFromAPI()}>Update</button>
     </div>
   );
 }

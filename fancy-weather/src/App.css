@@ -1,9 +1,15 @@
+.root {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+}
+
 .wrapper {
   margin: auto;
-  width: 1200px;
+  max-width: 1200px;
 }
 
 .header {
   height: 150px;
-  background-color: red;
+  border: 2px solid red;
 }

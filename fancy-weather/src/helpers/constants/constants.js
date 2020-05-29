@@ -9,10 +9,11 @@ export const languages = {
 };
 
 export const tokens = {
-  weather: "a9a3a62789de80865407c0452e9d1c27"
+  pictures: "73bdf4a0b75179e8e2e5d2108c85bfdc"
 };
 
 export const apiUrls = {
-  weather:
-    "https://api.openweathermap.org/data/2.5/forecast?q={city}&lang={lang}&units=metric&APPID={token}"
+  pictures:
+    "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=73bdf4a0b75179e8e2e5d2108c85bfdc&tags=nature,autumn,daytime,landscape&tag_mode=all&page=1&per_page=20&extras=url_c&format=json&nojsoncallback=1"
+
 };
