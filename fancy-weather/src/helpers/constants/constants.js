@@ -14,6 +14,6 @@ export const tokens = {
 
 export const apiUrls = {
   pictures:
-    "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=73bdf4a0b75179e8e2e5d2108c85bfdc&tags=nature,autumn,daytime,landscape&tag_mode=all&page=1&per_page=20&extras=url_c&format=json&nojsoncallback=1"
+    "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=73bdf4a0b75179e8e2e5d2108c85bfdc&tags=nature,autumn,daytime,landscape&tag_mode=all&page=1&per_page=1&extras=url_c&format=json&nojsoncallback=1"
 
 };
