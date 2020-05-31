@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import './App.css';
-import './components/controls/Controls';
+import './style.scss';
+// import './components/controls/Controls';
 import Controls from './components/controls/Controls';
 
 export class App extends React.Component {
