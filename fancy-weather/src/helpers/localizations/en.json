@@ -1,6 +1,5 @@
 {
   "placeholder": "Enter city",
-  "search": "search",
   "feel": "Feels like:",
   "wind": "Wind:",
   "ms": "m/s",
@@ -12,7 +11,7 @@
   ],
   "lat": "Latitude",
   "lng": "Longitude",
-  "wether": {
+  "weather": {
     "200": "Thunderstorm with light rain",
     "201": "Thunderstorm with rain",
     "202": "Thunderstorm with heavy rain",

@@ -1,0 +1,26 @@
+.city, .country {
+  color: #fff;
+  font-size: 40px;
+}
+
+.temperature {
+  color: #fff;
+  font-size: 100px;
+}
+
+.weather-today {
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.weather-icon-today {
+  width: 120px;
+  height: 120px;
+}
+
+.weather {
+  display: flex;
+  color: #fff;
+}

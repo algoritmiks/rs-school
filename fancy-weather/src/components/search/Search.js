@@ -19,7 +19,11 @@ function Search(props) {
 
   return (
     <div className="search-wrapper">
-      <input className="search" value = { searchingLocation } onChange = { (e) => onChangeInput(e) }></input>
+      <input className="search" 
+        placeholder={ props.state.localisations[`${props.state.language}`].placeholder}
+        value = { searchingLocation } 
+        onChange = { (e) => onChangeInput(e) }>
+      </input>
       <button className="search-button" onClick = { () => onSearchClick() }> 
         <img className="search-icon" src="img/search-icon.png" alt="search-icon"></img>
       </button>

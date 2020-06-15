@@ -12,22 +12,22 @@ function Controls(props) {
           setTimeout(()=> { setAnimation('') }, 1500) })
   }
 
-  const changeLanguage = (e) => {
-      console.log(e.target.value)
+  const onChangeLanguage = (e) => {
+      props.changeLanguage(e.target.value.toLowerCase())
   }
-
+  
   return (
     <div className="controls">
       <button className="update-button" onClick={() => updateClick()}>
         <img className={`spinner ${animation}`} src="img/spinner.svg" alt="spinner"></img>
       </button>
-      <select className="language-selector" onChange={(e) => changeLanguage(e)}>
+      <select className="language-selector" onChange={(e) => onChangeLanguage(e)}>
         <option>EN</option>
         <option>RU</option>
         <option>BE</option>
       </select>
       <Units />
-      <Search changeLocation = { props.changeLocation }/>
+      <Search changeLocation = { props.changeLocation } state = {props.state}/>
     </div>
   );
 }
