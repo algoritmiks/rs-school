@@ -9,10 +9,12 @@ function TodayCard (props) {
       <div className="weather">
         <div className="temperature"> {props.weather.temp} </div>
         <img className="weather-icon-today" src={props.weather.picture} alt="weather"></img>
-        <div>{props.weather.descr}</div>
-        <div>{props.weather.feel}</div>
-        <div>{props.weather.humidity}</div>
-        <div>{props.weather.wind}</div>
+        <div className="weather-details">
+          <div><p>{props.weather.descr}</p></div>
+          <div><p>{props.weather.feel}</p></div>
+          <div><p>{props.weather.humidity}</p></div>
+          <div><p>{props.weather.wind}</p></div>
+        </div>
       </div>
       
     </div>
