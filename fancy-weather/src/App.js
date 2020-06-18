@@ -119,6 +119,7 @@ export class App extends React.Component {
             changeLanguage = {this.changeLanguage}
             getImageFromAPI = {this.getImageFromAPI}
             changeLocation = {this.changeLocation}
+            changeUnits = {this.changeUnits}
             state = {this.state}
           />  
         </header>

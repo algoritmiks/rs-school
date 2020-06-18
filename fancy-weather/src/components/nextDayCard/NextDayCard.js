@@ -2,13 +2,18 @@ import React from 'react';
 
 function NextDayCard(props) {
   let temperature = 0;
-  let description = '';
-  let imageURL = '';
+  let description, imageURL;
+
   if (props.weather) {
-    temperature = props.weather.temp;
+    if (props.units === 'C') {
+      temperature = props.weather.temp;
+    } else {
+      temperature = props.weather.tempF;
+    }
     description = props.weather.descr;
     imageURL = props.weather.picture;
   }
+
   return (
     <div className="weather-future">
       <div className="descr"> { description } </div>

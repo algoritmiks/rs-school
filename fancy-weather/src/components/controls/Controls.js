@@ -26,7 +26,7 @@ function Controls(props) {
         <option>RU</option>
         <option>BE</option>
       </select>
-      <Units />
+      <Units changeUnits = { props.changeUnits }/>
       <Search changeLocation = { props.changeLocation } state = {props.state}/>
     </div>
   );
