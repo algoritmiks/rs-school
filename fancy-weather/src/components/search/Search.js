@@ -17,14 +17,22 @@ function Search(props) {
     // console.log('emty', searchingLocation);
   }
 
+  const onKeyboardClick = (e) => {
+    if (e.nativeEvent.code === "Enter") {
+      e.preventDefault();
+      onSearchClick();
+    }
+  }
+
   return (
     <div className="search-wrapper">
       <input className="search" 
+        onKeyPress = { onKeyboardClick }
         placeholder={ props.state.localisations[`${props.state.language}`].placeholder}
         value = { searchingLocation } 
-        onChange = { (e) => onChangeInput(e) }>
+        onChange = { onChangeInput }>
       </input>
-      <button className="search-button" onClick = { () => onSearchClick() }> 
+      <button className="search-button" onClick = { onSearchClick }> 
         <img className="search-icon" src="img/search-icon.png" alt="search-icon"></img>
       </button>
     </div>

@@ -65,7 +65,7 @@ export class App extends React.Component {
               || response.data.results[0].components.state,
             latitude: response.data.results[0].annotations.DMS.lat,
             longitude: response.data.results[0].annotations.DMS.lng,
-            timezone: response.data.results[0].annotations.timezone.offset_string            
+            timezone: response.data.results[0].annotations.timezone.offset_sec * 1000            
           }
           return newState;
         } else {
