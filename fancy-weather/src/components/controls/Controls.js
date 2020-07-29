@@ -18,10 +18,10 @@ function Controls(props) {
   
   return (
     <div className="controls">
-      <button className="update-button" onClick={() => updateClick()}>
+      <button className="update-button" onClick={ updateClick }>
         <img className={`spinner ${animation}`} src="img/spinner.svg" alt="spinner"></img>
       </button>
-      <select className="language-selector" onChange={(e) => onChangeLanguage(e)}>
+      <select className="language-selector" onChange={ onChangeLanguage }>
         <option>EN</option>
         <option>RU</option>
         <option>BE</option>

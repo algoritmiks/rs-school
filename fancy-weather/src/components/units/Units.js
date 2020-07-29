@@ -14,7 +14,7 @@ function Units(props) {
   }
 
   return (
-    <div className={ units } onClick={() => onChangeUnits()}></div>
+    <div className={ units } onClick={ onChangeUnits }></div>
   );
 }
 
