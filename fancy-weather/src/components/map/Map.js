@@ -4,13 +4,12 @@ import * as constants from '../../helpers/constants/constants';
 
 
 class Map extends React.Component {
-
   componentDidMount() {
     mapboxgl.accessToken = constants.tokens.mapbox;
     let map = new mapboxgl.Map({
     container: this.mapContainer, // container id
     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-    center: [this.props.lat || 39.8933705, this.props.lng || 57.6263877], // starting position [lng, lat]
+    center: [this.props.lat, this.props.lng], // starting position [lng, lat]
     zoom: 8 // starting zoom
     });
     this.map = map;
@@ -33,13 +32,6 @@ class Map extends React.Component {
     </div>
     )
   }
-
 }
-
-
-
-
-
-
 
 export default Map;
