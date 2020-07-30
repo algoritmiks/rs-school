@@ -3,6 +3,7 @@ import axios from 'axios';
 import './style.scss';
 import Controls from './components/controls/Controls';
 import Weather from './components/weather/Weather';
+import Map from './components/map/Map';
 import * as constants from './helpers/constants/constants';
 import en from './helpers/localizations/en.json'
 import ru from './helpers/localizations/ru.json'
@@ -125,6 +126,10 @@ export class App extends React.Component {
         </header>
         <main>
           <Weather state = {this.state}/>
+          <Map 
+            lat = {this.state.lat}
+            lng = {this.state.lng}
+          />
         </main>
       </div>
     </div>
