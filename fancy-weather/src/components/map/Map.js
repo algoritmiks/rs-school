@@ -10,7 +10,7 @@ class Map extends React.Component {
     container: this.mapContainer, // container id
     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
     center: [this.props.lat, this.props.lng], // starting position [lng, lat]
-    zoom: 8 // starting zoom
+    zoom: 10 // starting zoom
     });
     this.map = map;
   }
@@ -27,7 +27,7 @@ class Map extends React.Component {
 
   render () {
     return (
-    <div>
+    <div className = "map">
       <div ref={el => this.mapContainer = el} className="mapContainer" />
     </div>
     )

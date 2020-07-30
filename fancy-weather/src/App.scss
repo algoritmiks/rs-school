@@ -7,11 +7,16 @@
 
 .wrapper {
   margin: auto;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 .header {
   display: flex;
   align-items: center;
   height: 100px;
+}
+
+.weather-map-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
