@@ -51,9 +51,7 @@ export class App extends React.Component {
   changeLocation = (newLocation) => {
     axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${newLocation}&key=${constants.tokens.opencagedata}&language=en_US&pretty=1`)
       .then(response => {
-        // console.log(response.data.total_results);
         if (response.data.total_results > 0) {
-          // console.log('change location', response.data)
           let newState = {
             lat: response.data.results[0].geometry.lat,
             lng: response.data.results[0].geometry.lng,

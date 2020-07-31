@@ -20,7 +20,6 @@ class Clock extends React.Component {
 
 
   render () {
-    console.log(this.props.timezone)
     return (
     <div className = "clock">
       { new Date(this.state.remoteStamp + ( this.props.timezone || 0 )).toLocaleTimeString(this.props.contryCode) } 

@@ -9,12 +9,10 @@ function Search(props) {
   }
 
   const onSearchClick = () => {
-    // console.log(searchingLocation);
     if (searchingLocation) {
       props.changeLocation(searchingLocation);
     }
     changeSearchingLocation('');
-    // console.log('emty', searchingLocation);
   }
 
   const onKeyboardClick = (e) => {
