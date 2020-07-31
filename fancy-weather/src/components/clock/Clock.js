@@ -8,15 +8,12 @@ class Clock extends React.Component {
     let stampUTC = now.getTime() + now.getTimezoneOffset()*60*1000; //UTC Time stamp
     let remoteStamp = stampUTC;
     this.state = {
-      currentTime: 1,
-      now: stampUTC,
       remoteStamp: remoteStamp
     }
   }
 
   componentDidMount() {
     this.timer = setInterval(()=>{
-      this.setState({currentTime: this.state.currentTime + 1});
       this.setState({remoteStamp: this.state.remoteStamp + 1000});
     }, 1000);
   }
@@ -26,7 +23,7 @@ class Clock extends React.Component {
     console.log(this.props.timezone)
     return (
     <div className = "clock">
-      { new Date(this.state.remoteStamp + ( this.props.timezone || 0 )).toLocaleTimeString('ru') } 
+      { new Date(this.state.remoteStamp + ( this.props.timezone || 0 )).toLocaleTimeString(this.props.contryCode) } 
     </div>
     )
   }

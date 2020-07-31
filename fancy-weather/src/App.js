@@ -4,7 +4,6 @@ import './style.scss';
 import Controls from './components/controls/Controls';
 import Weather from './components/weather/Weather';
 import Map from './components/map/Map';
-import Clock from './components/clock/Clock';
 import * as constants from './helpers/constants/constants';
 import en from './helpers/localizations/en.json'
 import ru from './helpers/localizations/ru.json'
@@ -67,7 +66,8 @@ export class App extends React.Component {
               || response.data.results[0].components.state,
             latitude: response.data.results[0].annotations.DMS.lat,
             longitude: response.data.results[0].annotations.DMS.lng,
-            timezone: response.data.results[0].annotations.timezone.offset_sec * 1000            
+            timezone: response.data.results[0].annotations.timezone.offset_sec * 1000,
+            countryCode: response.data.results[0].components.country_code            
           }
           return newState;
         } else {
@@ -132,7 +132,6 @@ export class App extends React.Component {
             lat = {this.state.lat}
             lng = {this.state.lng}
           />
-          <Clock timezone = {this.state.timezone}/>
           </div>
         </main>
       </div>

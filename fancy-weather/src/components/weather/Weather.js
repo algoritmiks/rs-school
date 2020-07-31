@@ -1,6 +1,6 @@
 import React from 'react';
 import TodayCard from '../todayCard/TodayCard';
-import NextDayCard from '../nextDayCard/NextDayCard'
+import NextDayCard from '../nextDayCard/NextDayCard';
 
 function Weather (props) {
   const todayWeather = {};
