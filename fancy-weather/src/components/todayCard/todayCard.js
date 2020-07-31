@@ -21,6 +21,7 @@ function TodayCard (props) {
         <Clock 
             timezone = {props.state.timezone}
             contryCode = {props.state.countryCode}
+            state = {props.state}
          />
       </div>
       <div className="weather">
