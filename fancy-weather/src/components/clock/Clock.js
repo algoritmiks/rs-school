@@ -5,12 +5,11 @@ class Clock extends React.Component {
   state = {
     stampUTC: 0,
     weekDay: 0,
-    month: 0,
   }
 
   getStampUTC() {
     let now = new Date();
-    return now.getTime() + now.getTimezoneOffset()*60*1000; //UTC time stamp
+    return now.getTime() + now.getTimezoneOffset()*60*1000;
   }
 
   getWeekDay() {
@@ -18,11 +17,8 @@ class Clock extends React.Component {
   }
 
   componentDidMount() {
-    this.lang = this.props.state.localisations[`${this.props.state.language}`];
-    let remoteWeekDay = this.getWeekDay();
-
     this.setState({
-      weekDay: remoteWeekDay,
+      weekDay: this.getWeekDay(),
       stampUTC: this.getStampUTC()
     });
 
