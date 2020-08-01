@@ -12,12 +12,10 @@ import be from './helpers/localizations/be.json'
 export class App extends React.Component {
   state = {
     localisations: {en: en, ru: ru, be: be},
-    // location: 'Yaroslavl',
-    // country: 'Russia',
     lat: '57.6263877',
     lng: '39.8933705',
-    // latitude: '',
-    // longitude: '',
+    latitude: '',
+    longitude: '',
     language: 'en',
     units: 'C',
     url: 'url(/img/bg-default.jpg)',
@@ -81,7 +79,6 @@ export class App extends React.Component {
         }
       })
       .catch(error => {
-        console.log(error.message)
         alert('something wrong');
       })
   }
@@ -109,8 +106,6 @@ export class App extends React.Component {
   }
 
   render() {
-    window.state = this.state;
-    
     return (
     <div className="root" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), #000), ${this.state.url}`}}>
       <div className="wrapper">

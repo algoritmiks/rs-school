@@ -1,9 +1,7 @@
 .weather-future {
   display: flex;
-  color: #fff;
+  color: $main-color;
   width: 150px;
-  
-  // justify-content: center;
   flex-wrap: wrap;
   flex-flow: column;
 }
@@ -14,7 +12,6 @@
   text-align: center;
   margin-top: 5px;
 }
-
 
 .weather-icon-future {
   width: 50px;

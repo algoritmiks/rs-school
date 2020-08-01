@@ -28,9 +28,9 @@
 .language-selector {
   background-color: transparent;
   border-radius: 5px;
-  border: 2px white solid;
+  border: 2px $main-color solid;
   outline: none;
-  color: #fff;
+  color: $main-color;
   font-weight: 700;
   height: 40px;
   width: 50px;

@@ -2,7 +2,6 @@ import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import * as constants from '../../helpers/constants/constants';
 
-
 class Map extends React.Component {
   componentDidMount() {
     mapboxgl.accessToken = constants.tokens.mapbox;

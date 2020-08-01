@@ -14,7 +14,7 @@
     content: "°C";
     top: 7px;
     left: 45px;
-    color: #fff;
+    color: $main-color;
     font-weight: 700;
   }
 
@@ -23,7 +23,7 @@
     height: 32px;
     width: 32px; 
     border-radius: 5px;
-    background: white;
+    background: $main-color;
     top: 2px; 
     left: 2px;
     transition-duration: 500ms;

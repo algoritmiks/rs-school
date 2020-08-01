@@ -1,10 +1,10 @@
 .city, .country {
-  color: #fff;
+  color: $main-color;
   font-size: 40px;
 }
 
 .temperature {
-  color: #fff;
+  color: $main-color;
   font-size: 150px;
 }
 
@@ -22,5 +22,5 @@
 
 .weather {
   display: flex;
-  color: #fff;
+  color: $main-color;
 }
