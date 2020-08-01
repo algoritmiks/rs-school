@@ -25,7 +25,6 @@ class Map extends React.Component {
   }
 
   render () {
-    debugger
     return (
     <div className = "map">
       <div className = "coords">
