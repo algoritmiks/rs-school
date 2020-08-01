@@ -2,27 +2,34 @@ import React from 'react';
 
 
 class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    let now = new Date()
-    let stampUTC = now.getTime() + now.getTimezoneOffset()*60*1000; //UTC Time stamp
-    this.state = {
-      remoteStamp: stampUTC,
-      weekDay: 0,
-      month: 0
-    }
+  state = {
+    stampUTC: 0,
+    weekDay: 0,
+    month: 0,
+  }
+
+  getStampUTC() {
+    let now = new Date();
+    return now.getTime() + now.getTimezoneOffset()*60*1000; //UTC time stamp
+  }
+
+  getWeekDay() {
+    return new Date(this.getStampUTC() + ( this.props.timezone || 0 )).getDay();
   }
 
   componentDidMount() {
     this.lang = this.props.state.localisations[`${this.props.state.language}`];
-    let remoteDate = new Date(this.state.remoteStamp + ( this.props.timezone || 0 )).getDate();
-    let remoteWeekDay = new Date(this.state.remoteStamp + ( this.props.timezone || 0 )).getDay();
+    let remoteWeekDay = this.getWeekDay();
+
     this.setState({
-      month: this.lang.month[remoteDate],
-      weekDay: this.lang.day[remoteWeekDay]
+      weekDay: remoteWeekDay,
+      stampUTC: this.getStampUTC()
     });
+
     this.timer = setInterval(()=>{
-      this.setState({remoteStamp: this.state.remoteStamp + 1000});
+      this.setState({
+        stampUTC: this.state.stampUTC + 1000,
+      });
     }, 1000);
   }
 
@@ -30,10 +37,10 @@ class Clock extends React.Component {
   render () {
     return (
     <div className = "clock">
-      { new Date(this.state.remoteStamp + ( this.props.timezone || 0 )).toLocaleString(this.props.contryCode) } 
+      { new Date(this.state.stampUTC + ( this.props.timezone || 0 )).toLocaleString(this.props.contryCode) } 
         <div>
-         { this.state.weekDay }
-         </div>
+          { this.props.state.localisations[`${this.props.state.language}`].day[this.state.weekDay] }
+        </div>
     </div>
     )
   }
