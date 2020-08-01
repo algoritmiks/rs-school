@@ -21,10 +21,12 @@ class Map extends React.Component {
         this.props.state.lat,
       ],
       essential: true,
+      zoom: 10 
     });
   }
 
   render () {
+    console.log('map');
     return (
     <div className = "map">
       <div className = "coords">
