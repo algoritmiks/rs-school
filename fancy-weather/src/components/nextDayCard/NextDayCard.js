@@ -16,9 +16,11 @@ function NextDayCard(props) {
 
   return (
     <div className="weather-future">
-      <div className="descr"> { description } </div>
-      <div className="temp"> { temperature } </div>
+      <div className="descr weather-future_item"> { description } </div>
+      <div className="temp weather-future_item"> { temperature } </div>
+      <div className="weather-future_item">
       <img className="weather-icon-future" src={imageURL} alt="weather"></img>
+      </div>
     </div>
   );
 }
