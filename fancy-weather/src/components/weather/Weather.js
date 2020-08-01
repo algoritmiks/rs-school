@@ -13,10 +13,14 @@ function Weather (props) {
   }
 
   const getDateData = (date) => {
+    const localisation = props.state.localisations[props.state.language];
+    
     return {
       year: date.getFullYear(),
-      month: date.getMonth(),
-      weekDay: date.getDay(),
+      month: localisation.month[date.getMonth()],
+      // month: date.getMonth(), //localisation.month[date.getMonth()]
+      // weekDay: date.getDay(), //localisation.day[date.getDay()]
+      weekDay: localisation.day[date.getDay()],
       date: date.getDate()
     }
   }
