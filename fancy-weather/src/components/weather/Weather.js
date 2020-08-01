@@ -5,7 +5,31 @@ import NextDayCard from '../nextDayCard/NextDayCard';
 function Weather (props) {
   const todayWeather = {};
   const futureWeather = [];
-debugger
+  const nextDaysDates = [];
+
+  const createDate = (days, timestamp) => {
+    let newTimeStamp = props.state.currentDate + days * 24 * 60 * 60 * 1000;
+    return new Date(newTimeStamp);
+  }
+
+  const getDateData = (date) => {
+    return {
+      year: date.getFullYear(),
+      month: date.getMonth(),
+      weekDay: date.getDay(),
+      date: date.getDate()
+    }
+  }
+
+  if (props.state.currentDate) {
+    const day1Date = createDate(1);
+    const day2Date = createDate(2);
+    const day3Date = createDate(3);
+    nextDaysDates.push(getDateData(day1Date));
+    nextDaysDates.push(getDateData(day2Date));
+    nextDaysDates.push(getDateData(day3Date));
+  }
+
   if (props.state.weather) {
     const lang = props.state.localisations[`${props.state.language}`];
     const todayWeatherData = props.state.weather.data[0]; 
@@ -41,9 +65,9 @@ debugger
     <div className="weather-wrapper">
       <TodayCard state = { props.state } weather = { todayWeather } setCurrentDate = { props.setCurrentDate }/>
       <div className="weather-future-wrapper">
-        <NextDayCard units = {props.state.units} weather = { futureWeather[0] }/>
-        <NextDayCard units = {props.state.units} weather = { futureWeather[1] }/>
-        <NextDayCard units = {props.state.units} weather = { futureWeather[2] }/>
+        <NextDayCard units = {props.state.units} weather = { futureWeather[0] } dateData = {nextDaysDates[0]}/>
+        <NextDayCard units = {props.state.units} weather = { futureWeather[1] } dateData = {nextDaysDates[1]}/>
+        <NextDayCard units = {props.state.units} weather = { futureWeather[2] } dateData = {nextDaysDates[2]}/>
       </div>
     </div>
   )
