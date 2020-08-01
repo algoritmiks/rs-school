@@ -127,8 +127,7 @@ export class App extends React.Component {
           <div className="weather-map-wrapper">
           <Weather state = {this.state}/>
           <Map 
-            lat = {this.state.lat}
-            lng = {this.state.lng}
+            state = {this.state}
           />
           </div>
         </main>
