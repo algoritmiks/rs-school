@@ -18,13 +18,13 @@ class Clock extends React.Component {
 
   componentDidMount() {
     this.setState({
-      weekDay: this.getWeekDay(),
       stampUTC: this.getStampUTC()
     });
 
     this.timer = setInterval(()=>{
       this.setState({
         stampUTC: this.state.stampUTC + 1000,
+        weekDay: this.getWeekDay(),
       });
     }, 1000);
   }
