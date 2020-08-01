@@ -16,19 +16,33 @@ class Clock extends React.Component {
     return new Date(this.getStampUTC() + ( this.props.timezone || 0 )).getDay();
   }
 
+  getCurrentDate(currentDateStamp) {
+    return new Date(currentDateStamp);
+  }
+  
+  getCurrentDateStamp() {
+    return this.getStampUTC() + ( this.props.timezone || 0 );
+  }
+
+  setCurrentDateToState(currentDate) {
+    this.props.setCurrentDate(currentDate);
+  }
+
   componentDidMount() {
     this.setState({
       stampUTC: this.getStampUTC()
     });
 
     this.timer = setInterval(()=>{
+      let currentDateStamp = this.getCurrentDateStamp();
+      let currentDate = this.getCurrentDate(currentDateStamp);
+      this.setCurrentDateToState(currentDateStamp);
       this.setState({
         stampUTC: this.state.stampUTC + 1000,
-        weekDay: this.getWeekDay(),
+        weekDay: currentDate.getDay(),
       });
     }, 1000);
   }
-
 
   render () {
     return (

@@ -5,7 +5,7 @@ import NextDayCard from '../nextDayCard/NextDayCard';
 function Weather (props) {
   const todayWeather = {};
   const futureWeather = [];
-
+debugger
   if (props.state.weather) {
     const lang = props.state.localisations[`${props.state.language}`];
     const todayWeatherData = props.state.weather.data[0]; 
@@ -39,7 +39,7 @@ function Weather (props) {
 
   return (
     <div className="weather-wrapper">
-      <TodayCard state = { props.state } weather = { todayWeather }/>
+      <TodayCard state = { props.state } weather = { todayWeather } setCurrentDate = { props.setCurrentDate }/>
       <div className="weather-future-wrapper">
         <NextDayCard units = {props.state.units} weather = { futureWeather[0] }/>
         <NextDayCard units = {props.state.units} weather = { futureWeather[1] }/>

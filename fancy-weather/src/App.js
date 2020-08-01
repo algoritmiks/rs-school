@@ -105,6 +105,12 @@ export class App extends React.Component {
     this.setState({units: units})
   }
 
+  setCurrentDate = (currentDate) => {
+    this.setState({
+      currentDate: currentDate
+    })
+  }
+
   render() {
     return (
     <div className="root" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), #000), ${this.state.url}`}}>
@@ -120,7 +126,7 @@ export class App extends React.Component {
         </header>
         <main>
           <div className="weather-map-wrapper">
-          <Weather state = {this.state}/>
+          <Weather state = {this.state} setCurrentDate = { this.setCurrentDate }/>
           <Map 
             state = {this.state}
           />
