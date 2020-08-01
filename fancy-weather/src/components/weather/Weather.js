@@ -18,8 +18,6 @@ function Weather (props) {
     return {
       year: date.getFullYear(),
       month: localisation.month[date.getMonth()],
-      // month: date.getMonth(), //localisation.month[date.getMonth()]
-      // weekDay: date.getDay(), //localisation.day[date.getDay()]
       weekDay: localisation.day[date.getDay()],
       date: date.getDate()
     }

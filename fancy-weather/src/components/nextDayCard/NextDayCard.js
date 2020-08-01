@@ -24,10 +24,9 @@ function NextDayCard(props) {
     year = props.dateData.year;
     date = props.dateData.date;
   }
-  debugger
+  
   return (
     <div className="weather-future">
-    {/* <div className="weather-future_item">Понедельник</div> */}
     <div className="weather-future_item"> { weekDay }</div>
     <div className="weather-future_item">{`${date} ${month} ${year}`}</div>
       <div className="temp weather-future_item"> { temperature } </div>
