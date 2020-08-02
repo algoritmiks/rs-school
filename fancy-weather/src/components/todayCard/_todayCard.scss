@@ -9,7 +9,7 @@
 }
 
 .weather-today {
-  width: 500px;
+  max-width: 500px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -23,4 +23,19 @@
 .weather {
   display: flex;
   color: $main-color;
+}
+
+@media (max-width: 375px) {
+  .city, .country {
+    text-align: center;
+  }
+  .weather {
+    flex-wrap: wrap;
+    max-width: 375px;
+    justify-content: center;
+    align-items: baseline;
+  }
+  .weather-today {
+    max-width: 375px;
+  }
 }

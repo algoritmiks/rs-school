@@ -3,9 +3,8 @@
 }
 
 @media (max-width: 768px) {
-  .weather-wrapper {
-    // display: flex;
-    // justify-content: center;
-    // flex-direction: column;
+  .weather-future-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

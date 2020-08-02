@@ -46,10 +46,12 @@ class Clock extends React.Component {
   render () {
     return (
     <div className = "clock">
-      { new Date(this.state.stampUTC + ( this.props.timezone || 0 )).toLocaleString(this.props.contryCode) } 
-        <div>
-          { this.props.state.localisations[`${this.props.state.language}`].day[this.state.weekDay] }
-        </div>
+      <div className = "clock_date">
+        { new Date(this.state.stampUTC + ( this.props.timezone || 0 )).toLocaleString(this.props.contryCode) } 
+      </div>
+      <div className = "clock_day">
+        { this.props.state.localisations[`${this.props.state.language}`].day[this.state.weekDay] }
+      </div>
     </div>
     )
   }
