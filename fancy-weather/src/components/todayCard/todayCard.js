@@ -29,10 +29,10 @@ function TodayCard (props) {
         <div className="temperature"> {currentTemp} </div>
         <img className="weather-icon-today" src={props.weather.picture} alt="weather"></img>
         <div className="weather-details">
-          <div><p>{props.weather.descr}</p></div>
-          <div><p>{feelsTemp}</p></div>
-          <div><p>{props.weather.humidity}</p></div>
-          <div><p>{props.weather.wind}</p></div>
+          <div className="weather-details_item"><p>{props.weather.descr}</p></div>
+          <div className="weather-details_item"><p>{feelsTemp}</p></div>
+          <div className="weather-details_item"><p>{props.weather.humidity}</p></div>
+          <div className="weather-details_item"><p>{props.weather.wind}</p></div>
         </div>
       </div>
     </div>
