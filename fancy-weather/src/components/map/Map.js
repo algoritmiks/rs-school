@@ -17,8 +17,9 @@ class Map extends React.Component {
   }
   
   componentDidUpdate() {
-    if (this.props.state.lat !== this.lat) {
+    if (this.props.state.lat !== this.lat || this.props.state.lng !== this.lng) {
       this.lat = this.props.state.lat;
+      this.lng = this.props.state.lng;
       this.map.flyTo({
         center: [
           this.props.state.lng,
