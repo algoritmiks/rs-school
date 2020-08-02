@@ -66,7 +66,7 @@ function Search(props) {
   return (
     <div className="search-wrapper">
       <input
-        className="search"
+        className="search controls_item"
         onKeyPress={onKeyboardClick}
         placeholder={
           props.state.localisations[`${props.state.language}`].placeholder
@@ -75,7 +75,7 @@ function Search(props) {
         onChange={onChangeInput}
       ></input>
       <button
-        className="search-button"
+        className="search-button controls_item"
         style={{ background: isMicOn ? "red" : "" }}
         onClick={onMicrophoneClick}
       >
@@ -85,7 +85,7 @@ function Search(props) {
           alt="mic-icon"
         ></img>
       </button>
-      <button ref={search} className="search-button" onClick={onSearchClick}>
+      <button ref={search} className="search-button controls_item" onClick={onSearchClick}>
         <img
           className="search-icon"
           src="img/search-icon.png"
