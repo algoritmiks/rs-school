@@ -4,6 +4,8 @@ import * as constants from '../../helpers/constants/constants';
 
 class Map extends React.Component {
   componentDidMount() {
+    this.lat = this.props.state.lat;
+    this.lng = this.props.state.lng;
     mapboxgl.accessToken = constants.tokens.mapbox;
     let map = new mapboxgl.Map({
     container: this.mapContainer, // container id
@@ -15,14 +17,17 @@ class Map extends React.Component {
   }
   
   componentDidUpdate() {
-    this.map.flyTo({
-      center: [
-        this.props.state.lng,
-        this.props.state.lat,
-      ],
-      essential: true,
-      zoom: 10 
-    });
+    if (this.props.state.lat !== this.lat) {
+      this.lat = this.props.state.lat;
+      this.map.flyTo({
+        center: [
+          this.props.state.lng,
+          this.props.state.lat,
+        ],
+        essential: true,
+        zoom: 10
+      });
+    }
   }
 
   render () {

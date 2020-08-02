@@ -7,7 +7,7 @@ function Weather (props) {
   const futureWeather = [];
   const nextDaysDates = [];
 
-  const createDate = (days, timestamp) => {
+  const createDate = (days) => {
     let newTimeStamp = props.state.currentDate + days * 24 * 60 * 60 * 1000;
     return new Date(newTimeStamp);
   }
