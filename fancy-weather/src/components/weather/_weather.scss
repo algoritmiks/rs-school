@@ -1,3 +1,11 @@
 .weather-future-wrapper {
   display: flex;
 }
+
+@media (max-width: 768px) {
+  .weather-wrapper {
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+  }
+}

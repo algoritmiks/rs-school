@@ -32,7 +32,6 @@ class Map extends React.Component {
   }
 
   render () {
-    console.log('map');
     return (
     <div className = "map">
       <div className = "coords">
