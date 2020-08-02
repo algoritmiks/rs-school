@@ -15,8 +15,8 @@ function TodayCard (props) {
 
   return (
     <div className="weather-today">
-      <div className="city"> {props.state.location}</div>
-      <div className="country"> {props.state.country}</div>
+      <div className="city"> {props.state.cityTranslates[props.state.language]}</div>
+      <div className="country"> {props.state.countryTranslates[props.state.language]}</div>
       <div className="time">
         <Clock 
             timezone = {props.state.timezone}

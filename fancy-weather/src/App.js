@@ -20,6 +20,16 @@ export class App extends React.Component {
     units: 'C',
     url: 'url(/img/bg-default.jpg)',
     currentPageAPI: 1,
+    countryTranslates: {
+      en: "Russia",
+      ru: "Россия",
+      be: "Расія"
+    },
+    cityTranslates: {
+      en: "Yaroslavl",
+      ru: "Ярославль",
+      be: "Яраслаўль"
+    }
   }
 
   getImageFromAPI = () => {
@@ -46,25 +56,52 @@ export class App extends React.Component {
       })
   }
   
+  getCityTranslate = (newState) => {
+    return axios.get(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=${constants.tokens.translate}&lang=be&text=Cedar Rapids United States of America`)
+  }
+
   changeLocation = (newLocation) => {
     axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${newLocation}&key=${constants.tokens.opencagedata}&language=en_US&pretty=1`)
       .then(response => {
         if (response.data.total_results > 0) {
+
+          const tempCountry = response.data.results[0].components.country || 'unknown';
+          const tempCity = response.data.results[0].components.administrative 
+          || response.data.results[0].components.city
+          || response.data.results[0].components.town
+          || response.data.results[0].components.village 
+          || response.data.results[0].components.county
+          || response.data.results[0].components.state;
+
           let newState = {
             lat: response.data.results[0].geometry.lat,
             lng: response.data.results[0].geometry.lng,
-            country: response.data.results[0].components.country || 'unknown',
-            location: response.data.results[0].components.administrative 
-              || response.data.results[0].components.city
-              || response.data.results[0].components.town
-              || response.data.results[0].components.village 
-              || response.data.results[0].components.county
-              || response.data.results[0].components.state,
+            country: tempCountry, 
+            location: tempCity, 
+            countryTranslates: {
+              en: tempCountry
+            },
+            cityTranslates: {
+              en: tempCity
+            },
             latitude: response.data.results[0].annotations.DMS.lat,
             longitude: response.data.results[0].annotations.DMS.lng,
             timezone: response.data.results[0].annotations.timezone.offset_sec * 1000,
             countryCode: response.data.results[0].components.country_code            
           }
+
+          const requestString = `${newState.country}|${newState.location}`;
+
+          Promise.all( [axios.get(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=${constants.tokens.translate}&lang=ru&text=${requestString}`), 
+            axios.get(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=${constants.tokens.translate}&lang=be&text=${requestString}`)])
+            .then(function (data) {
+              const ruData = String(data[0].data.text).split("|");
+              const beData = String(data[1].data.text).split("|");
+              newState.countryTranslates.ru = ruData[0];
+              newState.countryTranslates.be = beData[0];
+              newState.cityTranslates.ru = ruData[1];
+              newState.cityTranslates.be = beData[1];
+            });
           return newState;
         } else {
           alert('location not found');
